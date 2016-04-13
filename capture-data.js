@@ -6,16 +6,16 @@ var server = dgram.createSocket('udp4');
 
 server.on('listening', function () {
     var address = server.address();
-    console.log('UDP Server listening on ' + address.address + ":" + address.port);
+    console.log('# UDP Server listening on ' + address.address + ":" + address.port);
 });
 
 server.on('message', function (message, remote) {
-    //console.log(remote.address + ':' + remote.port +' - ' + message);
     var fields = message.toString().split(',');
     if (fields.length > 13) {
       console.log(fields[0]+","+fields[14]);
+    } else {
+	console.log(remote.address + ':' + remote.port +' - ' + message);
     }
-
 });
 
 server.bind(PORT, HOST);
