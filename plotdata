@@ -1,0 +1,17 @@
+# gnuplot script file for plotting bandwidth over time
+#!/usr/bin/gnuplot
+reset
+set terminal png
+
+#set xdata time
+#set timefmt "%Y-%m-%dT%H:%M:%S"
+#set format x "%d/%m"
+
+set xlabel "time"
+set ylabel "pressure"
+
+set title "N5x"
+set key below
+set grid
+
+plot "data.csv" with linespoints

@@ -1,4 +1,4 @@
-var PORT = 3333;
+var PORT = 5555;
 var HOST = '192.168.1.65';
 
 var dgram = require('dgram');
@@ -10,7 +10,11 @@ server.on('listening', function () {
 });
 
 server.on('message', function (message, remote) {
-    console.log(remote.address + ':' + remote.port +' - ' + message);
+    //console.log(remote.address + ':' + remote.port +' - ' + message);
+    var fields = message.toString().split(',');
+    if (fields.length > 13) {
+      console.log(fields[0]+","+fields[14]);
+    }
 
 });
 
